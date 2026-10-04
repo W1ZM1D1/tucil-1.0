@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://ty0pio7388dl"]
+
+[ext_resource type="Script" uid="uid://c7b1rk368t6xm" path="res://Scripts/main.gd" id="1_8gbba"]
+[ext_resource type="PackedScene" uid="uid://g5exoc8gxolw" path="res://Scenes/player.tscn" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://dwf13kfi5wdhm" path="res://Scenes/platform.tscn" id="2_bo1nx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
+size = Vector2(560, 50)
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_8gbba")
+scene_platform = ExtResource("2_bo1nx")
+
+[node name="platform_container" type="Node2D" parent="."]
+
+[node name="platform" parent="platform_container" instance=ExtResource("2_bo1nx")]
+position = Vector2(280, 700)
+
+[node name="player" parent="." instance=ExtResource("1_jjgbg")]
+position = Vector2(280, 400)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(280, 400)
+
+[node name="Platform_eraser" type="Area2D" parent="Camera2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Platform_eraser"]
+position = Vector2(0, 500)
+shape = SubResource("RectangleShape2D_8gbba")
+
+[node name="score" type="Label" parent="Camera2D"]
+offset_left = -280.0
+offset_top = -350.0
+offset_right = 280.0
+offset_bottom = -310.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Camera2D/Platform_eraser" to="." method="_on_platform_eraser_body_entered"]

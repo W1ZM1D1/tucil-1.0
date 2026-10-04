@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2um0pul3k8un"]
+
+[ext_resource type="Script" uid="uid://cbb2vwuqrobfy" path="res://Scripts/title_menu.gd" id="1_ox7fa"]
+[ext_resource type="Texture2D" uid="uid://cvx4oqkbbq2a6" path="res://Assets/UI/play.png" id="2_xvpp4"]
+[ext_resource type="Texture2D" uid="uid://ivrqxpoeww4n" path="res://Assets/UI/letter-x-upper.png" id="3_fjcmt"]
+
+[node name="title_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ox7fa")
+
+[node name="main_container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="title" type="Label" parent="main_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(2.16588e-07, 0.280474, 0.148645, 1)
+theme_override_font_sizes/font_size = 40
+text = "DOODLE JUMP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="menu" type="HBoxContainer" parent="main_container"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="start" type="Button" parent="main_container/menu"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+icon = ExtResource("2_xvpp4")
+expand_icon = true
+
+[node name="exit" type="Button" parent="main_container/menu"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+icon = ExtResource("3_fjcmt")
+expand_icon = true
+
+[node name="highscore" type="Label" parent="main_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(2.16588e-07, 0.280474, 0.148645, 1)
+theme_override_font_sizes/font_size = 25
+text = "HIGHSCORE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="main_container/menu/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="main_container/menu/exit" to="." method="_on_exit_pressed"]
