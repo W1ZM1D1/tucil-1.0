@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbqc8ho5tyuw1"
-path="res://.godot/imported/rocket4.png-3db17c68c2d00a267314010c4e41ac29.ctex"
+uid="uid://ci16npyj2a6eh"
+path="res://.godot/imported/tile_0001.png-508f74c6454ccc585f621bc8f08e8152.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/rocket4.png"
-dest_files=["res://.godot/imported/rocket4.png-3db17c68c2d00a267314010c4e41ac29.ctex"]
+source_file="res://Assets/Player/tile_0001.png"
+dest_files=["res://.godot/imported/tile_0001.png-508f74c6454ccc585f621bc8f08e8152.ctex"]
 
 [params]
 
