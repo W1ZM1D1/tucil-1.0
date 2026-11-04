@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://g5exoc8gxolw"]
+[gd_scene format=3 uid="uid://g5exoc8gxolw"]
 
 [ext_resource type="Script" uid="uid://tv6fseffupmd" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://ci16npyj2a6eh" path="res://Assets/Player/tile_0001.png" id="2_6t5aa"]
@@ -11,7 +11,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_6t5aa")
 }],
-"loop": true,
+"loop": 1,
 "name": &"down",
 "speed": 5.0
 }, {
@@ -19,7 +19,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_cvnsp")
 }],
-"loop": true,
+"loop": 1,
 "name": &"up",
 "speed": 5.0
 }]
@@ -27,21 +27,21 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
 size = Vector2(15.5, 28)
 
-[node name="player" type="CharacterBody2D" groups=["player"]]
+[node name="player" type="CharacterBody2D" unique_id=522921443 groups=["player"]]
 scale = Vector2(2, 2)
 script = ExtResource("1_cvnsp")
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=203194138]
 texture_filter = 1
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_cvnsp")
 animation = &"down"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=201258133]
 position = Vector2(-0.25, 4)
 shape = SubResource("RectangleShape2D_cvnsp")
 
-[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+[node name="JumpSound" type="AudioStreamPlayer" parent="." unique_id=1293026669]
 stream = ExtResource("4_vgqql")
 volume_db = -2.44
