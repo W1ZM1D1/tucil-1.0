@@ -24,6 +24,13 @@ position = Vector2(280, 700)
 [node name="player" parent="." unique_id=1029720332 instance=ExtResource("1_jjgbg")]
 position = Vector2(280, 400)
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="player" unique_id=839207959]
+position = Vector2(-140, -200)
+scale = Vector2(0.5, 0.5)
+stream = ExtResource("5_kry3j")
+volume_db = 12.806
+autoplay = true
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=819834832]
 position = Vector2(280, 400)
 
@@ -43,10 +50,5 @@ theme_override_font_sizes/font_size = 26
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=839207959]
-stream = ExtResource("5_kry3j")
-volume_db = 12.806
-autoplay = true
 
 [connection signal="body_entered" from="Camera2D/Platform_eraser" to="." method="_on_platform_eraser_body_entered"]
