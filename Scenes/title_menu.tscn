@@ -56,5 +56,30 @@ text = "HIGHSCORE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1654395539]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 558.0
+offset_right = 304.0
+offset_bottom = 589.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1195305213]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="save" type="Button" parent="PanelContainer/VBoxContainer" unique_id=615381455]
+layout_mode = 2
+text = "Save"
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=829674420]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 613.0
+offset_right = 418.0
+offset_bottom = 648.0
+text = "Note : Press Save After Every run"
+
 [connection signal="pressed" from="main_container/menu/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="main_container/menu/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/save" to="." method="_on_save_pressed"]
