@@ -3,37 +3,44 @@
 [ext_resource type="Script" uid="uid://c7b1rk368t6xm" path="res://Scripts/main.gd" id="1_8gbba"]
 [ext_resource type="PackedScene" uid="uid://g5exoc8gxolw" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://dwf13kfi5wdhm" path="res://Scenes/platform.tscn" id="2_bo1nx"]
-[ext_resource type="PackedScene" uid="uid://txcq0vomnar4" path="res://Scenes/pause_stuff.tscn" id="3_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://b4ltuppcer6xh" path="res://Scenes/enemy shoot/enemy_shooter.tscn" id="3_jjvhh"]
+[ext_resource type="AudioStream" uid="uid://b840344mk3f6r" path="res://Assets/Sound/Pineapple Under The Sea.ogg" id="5_kry3j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
 size = Vector2(560, 50)
 
-[node name="main" type="Node2D" unique_id=940300932]
+[node name="main" type="Node2D" unique_id=1339045265]
 script = ExtResource("1_8gbba")
 scene_platform = ExtResource("2_bo1nx")
+enemy_scene = ExtResource("3_jjvhh")
+enemy_chance = 0.2
+enemy_min_height = 0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=609197356]
+[node name="platform_container" type="Node2D" parent="." unique_id=958835700]
 
-[node name="pause_stuff" parent="CanvasLayer" unique_id=589206536 instance=ExtResource("3_jjvhh")]
-
-[node name="platform_container" type="Node2D" parent="." unique_id=442015430]
-
-[node name="platform" parent="platform_container" unique_id=114505586 instance=ExtResource("2_bo1nx")]
+[node name="platform" parent="platform_container" unique_id=152319438 instance=ExtResource("2_bo1nx")]
 position = Vector2(280, 700)
 
-[node name="player" parent="." unique_id=33207844 instance=ExtResource("1_jjgbg")]
+[node name="player" parent="." unique_id=1029720332 instance=ExtResource("1_jjgbg")]
 position = Vector2(280, 400)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=220145484]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="player" unique_id=839207959]
+position = Vector2(-140, -200)
+scale = Vector2(0.5, 0.5)
+stream = ExtResource("5_kry3j")
+volume_db = 12.806
+autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=819834832]
 position = Vector2(280, 400)
 
-[node name="Platform_eraser" type="Area2D" parent="Camera2D" unique_id=1641978012]
+[node name="Platform_eraser" type="Area2D" parent="Camera2D" unique_id=86483474]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Platform_eraser" unique_id=357661558]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Platform_eraser" unique_id=1719569645]
 position = Vector2(0, 500)
 shape = SubResource("RectangleShape2D_8gbba")
 
-[node name="score" type="Label" parent="Camera2D" unique_id=1546711078]
+[node name="score" type="Label" parent="Camera2D" unique_id=1964315740]
 offset_left = -280.0
 offset_top = -350.0
 offset_right = 280.0

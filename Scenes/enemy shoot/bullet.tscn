@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bv8au857tvmqt"]
+
+[ext_resource type="Script" uid="uid://q470sa13pvfo" path="res://Scripts/enemy shoot/bullet.gd" id="1_rfdbf"]
+[ext_resource type="Texture2D" uid="uid://cad318rqker4x" path="res://Assets/Sprites/bullet.png" id="2_rfdbf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jps1b"]
+
+[node name="Bullet" type="Area2D" unique_id=677267390]
+script = ExtResource("1_rfdbf")
+speed = 230.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=465428933]
+scale = Vector2(0.5760123, 0.5760123)
+texture = ExtResource("2_rfdbf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=10472633]
+shape = SubResource("RectangleShape2D_jps1b")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=179133359]

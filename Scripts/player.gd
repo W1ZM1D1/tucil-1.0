@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal died
+
 var gravity = 10
 var jump_force = 600
 var speed = 300.0
@@ -43,3 +45,6 @@ func _update_animation(dir: float) -> void:
 		anim.play("up")   # moving up
 	else:
 		anim.play("down")   # moving down
+
+func hit() -> void:
+	died.emit()
