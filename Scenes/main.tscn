@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dwf13kfi5wdhm" path="res://Scenes/platform.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://b4ltuppcer6xh" path="res://Scenes/enemy shoot/enemy_shooter.tscn" id="3_jjvhh"]
 [ext_resource type="AudioStream" uid="uid://b840344mk3f6r" path="res://Assets/Sound/Pineapple Under The Sea.ogg" id="5_kry3j"]
+[ext_resource type="PackedScene" uid="uid://da32cctgqnjeb" path="res://Scenes/pause_stuff.tscn" id="6_21xkr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
 size = Vector2(560, 50)
@@ -50,5 +51,9 @@ theme_override_font_sizes/font_size = 26
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1542032221]
+
+[node name="pause_stuff" parent="CanvasLayer" unique_id=589206536 instance=ExtResource("6_21xkr")]
 
 [connection signal="body_entered" from="Camera2D/Platform_eraser" to="." method="_on_platform_eraser_body_entered"]
