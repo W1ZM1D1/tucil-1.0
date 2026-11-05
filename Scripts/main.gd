@@ -15,7 +15,6 @@ extends Node2D
 @export var enemy_min_height := 1500   
 @export var enemy_clearance := 110.0
 
-
 var score = 0
 var is_game_over := false
 
@@ -61,6 +60,8 @@ func _try_spawn_enemy(platform: StaticBody2D, prev_x: float, prev_y: float):
 func _ready():
 	player.died.connect(game_over)
 	level_generator(20)
+	player.died.connect(game_over)
+	level_generator(20)
 
 func _physics_process(_delta):
 	if player.position.y < camera.position.y:
@@ -77,6 +78,7 @@ func game_over():
 	is_game_over = true
 	if score > Global.highscore:
 		Global.highscore = score
+		
 	get_tree().change_scene_to_file("res://Scenes/title_menu.tscn")
 
 func _on_platform_eraser_body_entered(body):
@@ -84,3 +86,9 @@ func _on_platform_eraser_body_entered(body):
 		game_over()
 	body.queue_free()
 	level_generator(1)
+	
+
+	
+
+
+	

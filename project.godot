@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+Savenload="*uid://cj3s82uhawmty"
 Global="*res://global.gd"
 
 [display]
