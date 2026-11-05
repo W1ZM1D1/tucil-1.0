@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://txcq0vomnar4"]
+
+[ext_resource type="Script" uid="uid://pp6k6bwcwe5u" path="res://pause_stuff.gd" id="1_fmw2d"]
+[ext_resource type="Texture2D" uid="uid://cvx4oqkbbq2a6" path="res://Assets/UI/play.png" id="2_56eop"]
+[ext_resource type="Texture2D" uid="uid://ivrqxpoeww4n" path="res://Assets/UI/letter-x-upper.png" id="3_m6sdk"]
+
+[sub_resource type="Animation" id="Animation_fmw2d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_56eop"]
+resource_name = "pausing"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelContainer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m6sdk"]
+_data = {
+&"RESET": SubResource("Animation_fmw2d"),
+&"pausing": SubResource("Animation_56eop")
+}
+
+[node name="pause_stuff" type="Control" unique_id=589206536]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fmw2d")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1758035694]
+visible = false
+layout_mode = 0
+offset_left = 156.0
+offset_top = 182.0
+offset_right = 402.0
+offset_bottom = 636.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1698280883]
+layout_mode = 2
+theme_override_constants/separation = 75
+alignment = 1
+
+[node name="resume" type="Button" parent="PanelContainer/VBoxContainer" unique_id=84598590]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.0
+offset_transform_enabled = true
+icon = ExtResource("2_56eop")
+
+[node name="quit" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1502838658]
+layout_mode = 2
+size_flags_horizontal = 4
+icon = ExtResource("3_m6sdk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=57076589]
+libraries/ = SubResource("AnimationLibrary_m6sdk")
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
