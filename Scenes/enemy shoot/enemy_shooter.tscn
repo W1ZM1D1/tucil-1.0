@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b4ltuppcer6xh"]
+
+[ext_resource type="Script" uid="uid://djmlqys3yx0np" path="res://Scripts/enemy shoot/enemy_shooter.gd" id="1_krjb1"]
+[ext_resource type="PackedScene" uid="uid://bv8au857tvmqt" path="res://Scenes/enemy shoot/bullet.tscn" id="2_5r0qo"]
+[ext_resource type="Texture2D" uid="uid://h2r07vql4iao" path="res://Assets/Sprites/angry-spirit.png" id="3_1x12n"]
+[ext_resource type="AudioStream" uid="uid://5232seg5acmb" path="res://Assets/Sound/shoot.mp3" id="4_5r0qo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jps1b"]
+
+[node name="EnemyShooter" type="Area2D" unique_id=985278772]
+script = ExtResource("1_krjb1")
+bullet_scene = ExtResource("2_5r0qo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1869780574]
+scale = Vector2(2.5524204, 2.5524204)
+texture = ExtResource("3_1x12n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=294870188]
+scale = Vector2(3.889403, 3.889403)
+shape = SubResource("RectangleShape2D_jps1b")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=1304329922]
+position = Vector2(0, 21)
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=691184622]
+process_callback = 0
+
+[node name="ScreenNotifier" type="VisibleOnScreenNotifier2D" parent="." unique_id=222753086]
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="." unique_id=1899118660]
+stream = ExtResource("4_5r0qo")
+volume_db = 9.701
